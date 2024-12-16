@@ -1,6 +1,6 @@
 import Layout from "./Components/shared/Layout";
 import Categories from "./pages/Categories/Categories";
-import Home from "./pages/Categories/Home/Home";
+import Home from "./pages/Home/Home";
 
 const routes = [
   {
