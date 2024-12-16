@@ -7,7 +7,7 @@ export default function Layout() {
     <div>
       <Header />
       <Banner />
-      <main>
+      <main className="mt-16">
         <Outlet />
       </main>
     </div>

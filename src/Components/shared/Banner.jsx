@@ -7,9 +7,9 @@ export default function Banner() {
       className="h-[250px] bg-cover bg-[bottom_center] bg-no-repeat"
       style={{ backgroundImage: `url(${bannerBackground})` }}
     >
-      <div className="flex h-full flex-col items-center justify-center gap-5">
+      <div className="container flex h-full flex-col items-center justify-center gap-5 md:flex-row md:justify-between md:px-4">
         <h1 className="text-2xl text-white">Categories</h1>
-        <div className="flex items-center gap-3 text-sm font-[700] text-white">
+        <div className="flex items-center gap-3 text-sm font-[700] text-white md:text-base">
           <NavLink
             className={({ isActive }) =>
               `${isActive && "text-primary transition-colors"}`

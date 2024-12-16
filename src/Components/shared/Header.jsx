@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
-    <header className="container bg-tertiary px-4 py-3">
+    <header className="container bg-tertiary p-3">
       <div className="flex items-center justify-between text-white">
         <Link to="#" className="text-2xl">
           <FiShoppingCart />
