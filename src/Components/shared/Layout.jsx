@@ -3,11 +3,14 @@ import Header from "./Header";
 import Banner from "./Banner";
 
 export default function Layout() {
+  const { pathname } = useLocation();
+  const isHomePage = pathname === "/";
+
   return (
     <div>
       <Header />
-      <Banner />
-      <main className="mt-16 mb-20">
+      {!isHomePage && <Banner />}
+      <main className={`${!isHomePage && "mt-14"} mb-20`}>
         <Outlet />
       </main>
     </div>
