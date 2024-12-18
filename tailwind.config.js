@@ -20,6 +20,7 @@ export default {
         secondary: "#222D3B",
         tertiary: "#090C0F",
         quaternary: "#B1B5B7",
+        bgColor: '#0E1317'
       },
       fontFamily: {
         iransans: ["iransans", "sans-serif"],

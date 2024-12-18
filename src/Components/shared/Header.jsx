@@ -44,8 +44,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="container bg-tertiary p-3">
-        <div className="flex items-center justify-between text-white">
+      <header className="bg-tertiary p-3">
+        <div className="container flex items-center justify-between text-white">
           <Link to="#" className="text-2xl">
             <FiShoppingCart />
           </Link>
