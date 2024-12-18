@@ -5,14 +5,12 @@ export default function useFetch(
   route,
   { method = "GET", params = {}, body = null, headers = {} } = {},
 ) {
-  const [loading, setLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   const controllerRef = useRef(null); // To cancel ongoing requests
 
   const sendRequest = async () => {
-    setLoading(true);
     setError(null);
 
     // Cancel previous request if any
@@ -53,8 +51,6 @@ export default function useFetch(
       if (err.name !== "AbortError") {
         setError(err);
       }
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -67,5 +63,5 @@ export default function useFetch(
     };
   }, []);
 
-  return { data, loading, error, sendRequest };
+  return { data, error, sendRequest };
 }

@@ -4,26 +4,23 @@ import CategoriesCard from "../../Components/CategoriesCard";
 import useFetch from "../../Hooks/useFetch";
 
 function Categories() {
-  const {
-    data: categories,
-    loading,
-    error,
-    sendRequest,
-  } = useFetch("categories");
+  const { data: categories, error, sendRequest } = useFetch("categories");
 
   useEffect(() => {
     sendRequest();
   }, []);
 
   if (error) {
-    return <p>Failed to load categories. Please try again.</p>;
+    return (
+      <p className="p-4 text-quaternary">
+        Failed to load categories. Please try again.
+      </p>
+    );
   }
 
   return (
     <div className="container text-quaternary">
-      {loading ? (
-        <span>Loading</span>
-      ) : (
+      {categories ? (
         <>
           <div className="items-center justify-between px-4 sm:flex sm:px-8">
             <p className="mb-8 text-center sm:m-0">Showing 1–4 of 12 results</p>
@@ -34,11 +31,13 @@ function Categories() {
           </div>
 
           <div className="mx-auto mt-2 grid max-w-[400px] grid-cols-1 gap-x-10 gap-y-16 px-2 py-12 sm:max-w-[600px] sm:grid-cols-2 md:max-w-[720px]">
-            {categories?.map((category) => (
+            {categories.map((category) => (
               <CategoriesCard key={category._id} {...category} />
             ))}
           </div>
         </>
+      ) : (
+        <span>Loading...</span>
       )}
     </div>
   );
