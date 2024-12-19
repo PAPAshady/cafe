@@ -114,18 +114,18 @@ export default function Home() {
   ];
 
   return (
-    <div>
-      <section className="relative flex h-[380px] flex-col items-center justify-center gap-3 overflow-x-hidden px-7 text-center text-white xs:h-[450px] sm:h-[600px] sm:gap-5 md:h-[700px] lg:h-[770px] lg:gap-7 xl:h-[920px]">
+    <div className=''>
+      <section className="relative flex h-[480px] flex-col items-center justify-center gap-4 overflow-x-hidden px-5 text-center text-white xs:h-[450px] sm:gap-5 md:h-[600px] lg:h-[740px] lg:gap-7 xl:h-[820px]">
         <p className="text-sm italic text-primary md:text-lg lg:mb-2 xl:mb-4 xl:text-xl">
           Welcome to Our Restaurant
         </p>
-        <p className="text-2xl xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[4.2rem] xl:text-[5rem]">
+        <p className="text-3xl xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[4.2rem] xl:text-[5rem]">
           Taste Royale Cuisine
         </p>
         <span className="my-2 flex h-[1px] w-[170px] items-center justify-center bg-primary/25 sm:w-[200px] md:mb-2 md:mt-6 md:w-[250px] md:bg-primary/50 lg:mb-3 lg:mt-10 lg:w-[320px] xl:mb-4 xl:mt-12 xl:w-[400px]">
           <span className="seperator"></span>
         </span>
-        <p className="mb-2 w-[90%] text-xs font-semibold leading-[1.3] xs:w-full xs:text-sm sm:w-[500px] sm:text-base sm:font-normal md:w-[600px] md:text-lg lg:text-sm xl:w-[760px] xl:text-base">
+        <p className="mb-2 w-[90%] text-sm font-semibold leading-[1.3] xs:w-full xs:text-sm sm:w-[500px] sm:text-base sm:font-normal md:w-[600px] md:text-lg lg:text-sm xl:w-[760px] xl:text-base">
           The restaurant is an organic space reflective of nature inspired
           cuisine. The interplay of textures and colour brings life and a
           vibrance that embraces the restaurant’s place in the dress circle.
@@ -133,7 +133,7 @@ export default function Home() {
 
         <PrimaryBtn
           title="DISCOVER MORE"
-          titleClassName="sm:py-4 sm:px-6 sm:text-[.75rem] md:px-[32px] md:py-4 md:text-sm xl:px-[32px] xl:py-5 xl:text-sm"
+          size='sm'
         />
 
         <img
