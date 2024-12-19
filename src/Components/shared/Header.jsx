@@ -43,10 +43,19 @@ export default function Header() {
     },
   ];
 
+  const desktopNavbarLinks = [
+    { id: 1, title: 'HOME', href: '/' },
+    { id: 2, title: 'MENU', href: '/categories' },
+    { id: 3, title: 'ABOUT US', href: '/about-us' },
+    { id: 4, title: 'GALLERY', href: '/gallery' },
+    { id: 5, title: 'SUPPORT', href: '/support' },
+  ];
+
   return (
     <>
       <header className="bg-tertiary p-3">
-        <div className="container flex items-center justify-between text-white">
+        {/* mobile header */}
+        <div className="container flex items-center justify-between text-white lg:hidden">
           <Link to="#" className="text-2xl">
             <FiShoppingCart />
           </Link>
@@ -58,6 +67,34 @@ export default function Header() {
           <Link to="#" className="text-2xl">
             <IoSearch />
           </Link>
+        </div>
+
+        {/* desktop header */}
+        <div className="container hidden items-center justify-between py-4 lg:flex">
+          <Link className="text-2xl font-semibold text-primary" to="/">
+            LOGO
+          </Link>
+
+          <div className="flex items-center gap-12 pl-8 text-white xl:pl-20">
+            {desktopNavbarLinks.map((link) => (
+              <DesktopNavLink key={link.id} {...link} />
+            ))}
+          </div>
+
+          <div className="flex items-center justify-between gap-6">
+            <div className="flex items-center gap-8 text-2xl text-white">
+              <Link to="#" className="duration-300 hover:text-primary">
+                <FiShoppingCart />
+              </Link>
+
+              <Link to="#" className="duration-300 hover:text-primary">
+                <IoSearch />
+              </Link>
+            </div>
+            <button className="bg-primary px-10 py-3 font-semibold text-white">
+              ORDER
+            </button>
+          </div>
         </div>
       </header>
 
@@ -80,6 +117,26 @@ function MobileNavLink({ title, icon, href }) {
     >
       {icon}
       {title}
+    </NavLink>
+  );
+}
+
+function DesktopNavLink({ title, href }) {
+  return (
+    <NavLink
+      className={({ isActive }) =>
+        `group relative flex flex-col items-center text-sm font-bold transition-colors hover:text-primary ${isActive && 'text-primary'}`
+      }
+      to={href}
+    >
+      {({ isActive }) => (
+        <>
+          {title}
+          <span
+            className={`seperator group-hover:opacity-1 absolute top-[140%] transition-all ${isActive ? 'opacity-1' : 'opacity-0'}`}
+          ></span>
+        </>
+      )}
     </NavLink>
   );
 }
