@@ -8,7 +8,7 @@ function Categories() {
 
   useEffect(() => {
     sendRequest();
-  }, []);
+  }, [sendRequest]);
 
   if (error) {
     return (
