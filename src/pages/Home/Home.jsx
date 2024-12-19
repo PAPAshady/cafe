@@ -13,6 +13,7 @@ import servicesImg4 from '../../assets/images/home-page/servicesImg4.png';
 import aboutUsImg1 from '../../assets/images/home-page/aboutUsImg1.png';
 import aboutUsImg2 from '../../assets/images/home-page/aboutUsImg2.png';
 import aboutUsImg3 from '../../assets/images/home-page/aboutUsImg3.png';
+import menuBgColumn from '../../assets/images/home-page/menuBgColumn.png';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './Home.css';
@@ -46,6 +47,69 @@ export default function Home() {
       description: 'For each dish, the growth of every element & the selection',
       img: servicesImg4,
       href: '#',
+    },
+  ];
+
+  const menuItems = [
+    {
+      id: 1,
+      title: 'Raw Scallops from Erquy',
+      ingredients: 'Candied Jerusalem artichokes, truffle',
+      price: 38,
+    },
+    {
+      id: 2,
+      title: 'Sea Bass Ceviche',
+      ingredients: 'Avocado, butternut, lime',
+      price: 36,
+    },
+    {
+      id: 3,
+      title: 'Tender Octopus and Fennel',
+      ingredients: 'Citrus, wild rocket condiment',
+      price: 38,
+    },
+    {
+      id: 4,
+      title: 'Thinly Sliced Brittany Artichokes',
+      ingredients: 'Citrus, wild rocket condiment',
+      price: 42,
+    },
+    {
+      id: 5,
+      title: 'Celeriac and Truffle Ravioli',
+      ingredients: 'Roasted langoustine, consommé',
+      price: 32,
+    },
+    {
+      id: 6,
+      title: 'Viennese Veal Cutlet',
+      ingredients: 'Ricotta and spinach gnocchi, Caccio de Pepe',
+      price: 38,
+    },
+    {
+      id: 7,
+      title: 'Corrèze Pan-seared Veal Liver',
+      ingredients: 'Olive oil mashed potato, onion jus',
+      price: 36,
+    },
+    {
+      id: 8,
+      title: 'Cod Filet Cooked on One Side',
+      ingredients: 'Chorizo, chickpea espuma, pequillos',
+      price: 38,
+    },
+    {
+      id: 9,
+      title: 'Grilled Veal Filet Mignon',
+      ingredients: 'Pumpkin, endives with hazelnuts',
+      price: 42,
+    },
+    {
+      id: 10,
+      title: 'Grilled Black Angus Sirloin Steak',
+      ingredients: 'Coin de rue’ potatoes, Béarnaise sauce',
+      price: 32,
     },
   ];
 
@@ -111,12 +175,12 @@ export default function Home() {
       </section>
 
       <div className="container flex flex-col gap-20 px-2 lg:gap-36">
-        <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary px-8 py-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
+        <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary px-8 pb-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
           {servicesItemsArray.map((service) => (
             <ServicesItem key={service.id} {...service} />
           ))}
         </section>
-        <section className="mb-[20rem] flex flex-col gap-10 lg:mb-0 lg:flex-row-reverse">
+        <section className="mb-[80%] flex flex-col gap-10 lg:mb-0 lg:flex-row-reverse">
           <div className="flex w-full flex-col items-start gap-2 lg:pr-12">
             <h2 className="section-title">About Us</h2>
             <p className="section-sub-title">Between Heaven & Earth</p>
@@ -143,8 +207,32 @@ export default function Home() {
               alt="About us 1"
             />
             <img className="absolute" src={aboutUsImg2} alt="About us 2" />
-            <img className="absolute" src={aboutUsImg3} alt="About us 3" />
+            <img
+              className="absolute z-[3]"
+              src={aboutUsImg3}
+              alt="About us 3"
+            />
           </div>
+        </section>
+        <section className="bg-cover bg-center bg-no-repeat pt-10 text-center lg:px-6">
+          <div className="text-center">
+            <h2 className="section-title">From Our Menu</h2>
+            <p className="section-sub-title">Try Our Special Offers</p>
+            <span className="mx-auto my-8 flex h-[1px] w-[180px] items-center justify-center bg-primary">
+              <span className="seperator size-3"></span>
+            </span>
+          </div>
+          <div
+            className="bg-cover bg-center bg-no-repeat lg:px-7"
+            style={{ backgroundImage: `url(${menuBgColumn})` }}
+          >
+            <div className="grid flex-1 grid-cols-1 gap-3 gap-x-10 pt-4 sm:px-6 lg:grid-cols-2 lg:gap-x-12">
+              {menuItems.map((product) => (
+                <MenuItem key={product.id} {...product} />
+              ))}
+            </div>
+          </div>
+          <PrimaryBtn title="VIEW ALL MENU" ParentClassName="my-10" size="lg" />
         </section>
       </div>
     </div>
@@ -170,6 +258,25 @@ function ServicesItem({ title, img, description, href }) {
     </div>
   );
 }
+
+function MenuItem({ title, ingredients, price }) {
+  return (
+    <div className="py-2 text-start">
+      <div className="flex items-center gap-4">
+        <h4 className="mb-2 line-clamp-2 text-xl text-white">{title}</h4>
+        <span className="h-[1px] min-w-[50px] flex-1 bg-primary"></span>
+        <span className="text-xl text-primary">${price}</span>
+      </div>
+      <p className="line-clamp-2">{ingredients}</p>
+    </div>
+  );
+}
+
+MenuItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  ingredients: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+};
 
 ServicesItem.propTypes = {
   title: PropTypes.string.isRequired,
