@@ -32,7 +32,7 @@ export default function Footer() {
   return (
     <footer
       style={{ backgroundImage: `url(${footerBgImg})` }}
-      className="mb-[75px] bg-tertiary bg-cover bg-no-repeat px-2 py-16 text-quaternary lg:mb-8 xl:py-20"
+      className="mb-[75px] bg-tertiary bg-cover bg-no-repeat px-4 py-16 text-quaternary lg:mb-8 xl:py-20"
     >
       <div className="mx-auto flex max-w-[1200px] flex-col gap-10 md:flex-row xl:gap-4">
         <div className="md:flex-1">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-end md:flex-1">
+        <div className="flex md:justify-end md:flex-1">
           <div>
             <p className="mb-8 text-xl text-white">Working Hours</p>
             <p className="mb-4 text-lg text-primary">
