@@ -1,44 +1,45 @@
-import { FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from 'react-icons/fi';
 import {
   IoSearch,
   IoHomeOutline,
   IoFastFoodOutline,
   IoImagesOutline,
-} from "react-icons/io5";
-import { FaHeadphones } from "react-icons/fa6";
-import { Link, NavLink } from "react-router-dom";
+} from 'react-icons/io5';
+import { FaHeadphones } from 'react-icons/fa6';
+import { Link, NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Header() {
   const mobileNavbarLinks = [
     {
       id: 1,
-      title: "Cart",
+      title: 'Cart',
       icon: <FiShoppingCart className="text-2xl" />,
-      href: "/cart",
+      href: '/cart',
     },
     {
       id: 2,
-      title: "Support",
+      title: 'Support',
       icon: <FaHeadphones className="text-2xl" />,
-      href: "/support",
+      href: '/support',
     },
     {
       id: 3,
-      title: "Home",
+      title: 'Home',
       icon: <IoHomeOutline className="text-2xl" />,
-      href: "/",
+      href: '/',
     },
     {
       id: 4,
-      title: "Menu",
+      title: 'Menu',
       icon: <IoFastFoodOutline className="text-2xl" />,
-      href: "/categories",
+      href: '/categories',
     },
     {
       id: 5,
-      title: "Gallery",
+      title: 'Gallery',
       icon: <IoImagesOutline className="text-2xl" />,
-      href: "/gallery",
+      href: '/gallery',
     },
   ];
 
@@ -60,7 +61,7 @@ export default function Header() {
         </div>
       </header>
 
-      <nav className="fixed bottom-0 z-[5] flex w-full items-center justify-center border border-secondary bg-tertiary text-white">
+      <nav className="fixed bottom-0 z-[5] flex w-full items-center justify-center border border-secondary bg-tertiary text-white lg:hidden">
         {mobileNavbarLinks.map((link) => (
           <MobileNavLink key={link.id} {...link} />
         ))}
@@ -73,7 +74,7 @@ function MobileNavLink({ title, icon, href }) {
   return (
     <NavLink
       className={({ isActive }) =>
-        `flex flex-col items-center gap-1.5 py-3 text-[.8rem] flex-1 font-semibold duration-200 ${isActive && "text-primary"}`
+        `flex flex-1 flex-col items-center gap-1.5 py-3 text-[.8rem] font-semibold duration-200 ${isActive && 'text-primary'}`
       }
       to={href}
     >
@@ -82,3 +83,9 @@ function MobileNavLink({ title, icon, href }) {
     </NavLink>
   );
 }
+
+MobileNavLink.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+  href: PropTypes.string.isRequired,
+};
