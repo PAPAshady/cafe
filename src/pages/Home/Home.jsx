@@ -110,13 +110,13 @@ export default function Home() {
         />
       </section>
 
-      <div className="container flex flex-col gap-20 px-2">
+      <div className="container flex flex-col gap-20 px-2 lg:gap-36">
         <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary px-8 py-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
           {servicesItemsArray.map((service) => (
             <ServicesItem key={service.id} {...service} />
           ))}
         </section>
-        <section className="flex flex-col gap-10 lg:flex-row-reverse">
+        <section className="mb-[20rem] flex flex-col gap-10 lg:mb-0 lg:flex-row-reverse">
           <div className="flex w-full flex-col items-start gap-2 lg:pr-12">
             <h2 className="section-title">About Us</h2>
             <p className="section-sub-title">Between Heaven & Earth</p>
