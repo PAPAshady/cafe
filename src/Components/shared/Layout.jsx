@@ -10,7 +10,7 @@ export default function Layout() {
     <div>
       <Header />
       {!isHomePage && <Banner />}
-      <main className={`${!isHomePage && "mt-14"} mb-20`}>
+      <main className={`${!isHomePage && "mt-14"} mb-32 text-quaternary`}>
         <Outlet />
       </main>
     </div>

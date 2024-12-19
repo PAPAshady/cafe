@@ -1,0 +1,7 @@
+.section-title {
+    @apply text-primary italic text-lg
+}
+
+.section-sub-title {
+    @apply text-[2.4rem]  font-thin text-white leading-[1.2]
+}

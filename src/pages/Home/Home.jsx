@@ -10,8 +10,12 @@ import servicesImg1 from '../../assets/images/home-page/servicesImg1.png';
 import servicesImg2 from '../../assets/images/home-page/servicesImg2.png';
 import servicesImg3 from '../../assets/images/home-page/servicesImg3.png';
 import servicesImg4 from '../../assets/images/home-page/servicesImg4.png';
+import aboutUsImg1 from '../../assets/images/home-page/aboutUsImg1.png';
+import aboutUsImg2 from '../../assets/images/home-page/aboutUsImg2.png';
+import aboutUsImg3 from '../../assets/images/home-page/aboutUsImg3.png';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import './Home.css';
 
 export default function Home() {
   const servicesItemsArray = [
@@ -48,7 +52,7 @@ export default function Home() {
   return (
     <div>
       <section className="relative flex h-[380px] flex-col items-center justify-center gap-3 overflow-x-hidden px-7 text-center text-white xs:h-[450px] sm:h-[600px] sm:gap-5 md:h-[700px] lg:h-[770px] lg:gap-7 xl:h-[920px]">
-        <p className="text-sm text-primary md:text-lg lg:mb-2 xl:mb-4 xl:text-xl">
+        <p className="text-sm italic text-primary md:text-lg lg:mb-2 xl:mb-4 xl:text-xl">
           Welcome to Our Restaurant
         </p>
         <p className="text-2xl xs:text-[2rem] sm:text-[2.5rem] md:text-[3rem] lg:text-[4.2rem] xl:text-[5rem]">
@@ -106,11 +110,41 @@ export default function Home() {
         />
       </section>
 
-      <div className="container">
-        <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary p-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
+      <div className="container flex flex-col gap-20 px-2">
+        <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary px-8 py-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
           {servicesItemsArray.map((service) => (
             <ServicesItem key={service.id} {...service} />
           ))}
+        </section>
+        <section className="flex flex-col gap-10 lg:flex-row-reverse">
+          <div className="flex w-full flex-col items-start gap-2 lg:pr-12">
+            <h2 className="section-title">About Us</h2>
+            <p className="section-sub-title">Between Heaven & Earth</p>
+            <span className="my-5 flex h-[1px] w-[150px] items-center justify-start bg-primary">
+              <span className="seperator size-[10px]"></span>
+            </span>
+            <p className="leading-[2]">
+              The character and philosophy of our type of cuisine, which follows
+              the ancestral technique of using different types of firewood,
+              fire, charcoal and the scented trace of the smoke, inherently
+              results in a limitation on the number of diners that we can
+              accommodate without sacrificing our essence.
+            </p>
+            <p className="my-4 text-lg italic text-white sm:text-xl md:my-5">
+              Whisper to us about your feelings, and we will prepare what you
+              need now.
+            </p>
+            <PrimaryBtn title="DISCOVER MORE" size="md" />
+          </div>
+          <div className="relative w-full lg:w-[80%] lg:pt-16 xl:p-0">
+            <img
+              className="absolute z-[2]"
+              src={aboutUsImg1}
+              alt="About us 1"
+            />
+            <img className="absolute" src={aboutUsImg2} alt="About us 2" />
+            <img className="absolute" src={aboutUsImg3} alt="About us 3" />
+          </div>
         </section>
       </div>
     </div>

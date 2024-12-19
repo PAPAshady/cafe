@@ -20,10 +20,10 @@ export default function PrimaryBtn({
     <Link
       onClick={onClick && onClick}
       to={href}
-      className={`group border border-primary p-[.25rem] ${ParentClassName}`}
+      className={`group inline-block border border-primary p-[.25rem] ${ParentClassName}`}
     >
       <span
-        className={`block bg-secondary ${sizeClasses[size]} font-semibold transition-colors duration-300 group-hover:bg-primary ${titleClassName}`}
+        className={`inline-block bg-secondary text-white ${sizeClasses[size]} font-semibold transition-colors duration-300 group-hover:bg-primary ${titleClassName}`}
       >
         {title}
       </span>
@@ -33,7 +33,7 @@ export default function PrimaryBtn({
 
 PrimaryBtn.propTypes = {
   title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   size: PropTypes.string,
   ParentClassName: PropTypes.string,
   titleClassName: PropTypes.string,
