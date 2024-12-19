@@ -6,8 +6,45 @@ import staticImage1 from '../../assets/images/home-page/staticImage1.jpg';
 import staticImage2 from '../../assets/images/home-page/staticImage2.jpg';
 import staticImage3 from '../../assets/images/home-page/staticImage3.jpg';
 import staticImage4 from '../../assets/images/home-page/staticImage4.jpg';
+import servicesImg1 from '../../assets/images/home-page/servicesImg1.png';
+import servicesImg2 from '../../assets/images/home-page/servicesImg2.png';
+import servicesImg3 from '../../assets/images/home-page/servicesImg3.png';
+import servicesImg4 from '../../assets/images/home-page/servicesImg4.png';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Home() {
+  const servicesItemsArray = [
+    {
+      id: 1,
+      title: 'Fresh Products',
+      description: 'For each dish, the growth of every element & the selection',
+      img: servicesImg1,
+      href: '#',
+    },
+    {
+      id: 2,
+      title: 'Fresh Products',
+      description: 'For each dish, the growth of every element & the selection',
+      img: servicesImg2,
+      href: '#',
+    },
+    {
+      id: 3,
+      title: 'Fresh Products',
+      description: 'For each dish, the growth of every element & the selection',
+      img: servicesImg3,
+      href: '#',
+    },
+    {
+      id: 4,
+      title: 'Fresh Products',
+      description: 'For each dish, the growth of every element & the selection',
+      img: servicesImg4,
+      href: '#',
+    },
+  ];
+
   return (
     <div>
       <section className="relative flex h-[380px] flex-col items-center justify-center gap-3 overflow-x-hidden px-7 text-center text-white xs:h-[450px] sm:h-[600px] sm:gap-5 md:h-[700px] lg:h-[770px] lg:gap-7 xl:h-[920px]">
@@ -37,7 +74,7 @@ export default function Home() {
         />
         <img
           src={sliderImg2}
-          className="absolute left-[8%] top-[3%] z-[-1] w-[13%] lg:top-[8%] lg:left-[14%] max-w-[155px]"
+          className="absolute left-[8%] top-[3%] z-[-1] w-[13%] max-w-[155px] lg:left-[14%] lg:top-[8%]"
         />
         <img
           src={staticImage1}
@@ -49,11 +86,11 @@ export default function Home() {
         />
         <img
           src={sliderImg2}
-          className="absolute -right-[3%] top-[60%] z-[-2] h-[9%] max-h-[100px] w-[17%] max-w-[125px] rotate-180  lg:top-[85%]"
+          className="absolute -right-[3%] top-[60%] z-[-2] h-[9%] max-h-[100px] w-[17%] max-w-[125px] rotate-180 lg:top-[85%]"
         />
         <img
           src={staticImage3}
-          className="absolute -left-[15%] top-[13%] z-[-2] h-[28%] w-[30%] lg:w-[20%] lg:-left-[5%]"
+          className="absolute -left-[15%] top-[13%] z-[-2] h-[28%] w-[30%] lg:-left-[5%] lg:w-[20%]"
         />
         <img
           src={staticImage4}
@@ -61,13 +98,48 @@ export default function Home() {
         />
         <img
           src={sliderLogo}
-          className="absolute left-[3%] top-[66%] z-[-1] w-[18%] max-w-[84px] lg:max-w-[110px] lg:left-[15%] lg:top-[75%]"
+          className="absolute left-[3%] top-[66%] z-[-1] w-[18%] max-w-[84px] lg:left-[15%] lg:top-[75%] lg:max-w-[110px]"
         />
         <img
           src={sliderImg1}
           className="absolute -left-[4%] top-[67%] z-[-2] h-[22%] w-[12%]"
         />
       </section>
+
+      <div className="container">
+        <section className="mt-8 grid grid-cols-1 gap-10 bg-tertiary p-14 md:mt-12 md:grid-cols-2 lg:mt-20 xl:grid-cols-4 xl:p-24">
+          {servicesItemsArray.map((service) => (
+            <ServicesItem key={service.id} {...service} />
+          ))}
+        </section>
+      </div>
     </div>
   );
 }
+
+function ServicesItem({ title, img, description, href }) {
+  return (
+    <div className="group mx-auto flex max-w-[390px] flex-col items-center gap-3 text-center text-quaternary sm:max-w-[530px] md:max-w-none">
+      <div className="flex size-[130px] items-center justify-center rounded-full border border-transparent transition-colors duration-300 group-hover:border-primary">
+        <img src={img} className="size-[120px]" alt="Fresh Products" />
+      </div>
+      <h3 className="text-[1.2rem] text-white">{title}</h3>
+      <p>{description}</p>
+      <Link
+        to={href}
+        className="flex items-center gap-2 text-sm font-semibold text-primary"
+      >
+        <span className="seperator transition-all duration-300 group-hover:translate-x-3 group-hover:opacity-0"></span>
+        DISCOVER MORE
+        <span className="seperator transition-all duration-300 group-hover:-translate-x-3 group-hover:opacity-0"></span>
+      </Link>
+    </div>
+  );
+}
+
+ServicesItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+};
