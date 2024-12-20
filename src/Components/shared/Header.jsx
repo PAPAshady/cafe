@@ -146,3 +146,8 @@ MobileNavLink.propTypes = {
   icon: PropTypes.element.isRequired,
   href: PropTypes.string.isRequired,
 };
+
+DesktopNavLink.propTypes = {
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+}
