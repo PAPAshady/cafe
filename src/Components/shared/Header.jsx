@@ -91,7 +91,7 @@ export default function Header() {
                 <IoSearch />
               </Link>
             </div>
-            <button className="bg-primary px-10 py-3 font-semibold text-white">
+            <button className="bg-primary px-10 py-3 font-semibold text-white transition-colors duration-300 hover:bg-secondary">
               ORDER
             </button>
           </div>
