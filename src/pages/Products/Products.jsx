@@ -3,6 +3,7 @@ import { Range, getTrackBackground } from 'react-range';
 import PropTypes from 'prop-types';
 import productImg from '../../assets/images/categories/categoryImg2.png';
 import ProductCard from '../../Components/ProductCard';
+import RatingStars from '../../Components/RatingStars';
 import { IoSearchOutline, IoChevronForward } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
@@ -37,6 +38,27 @@ export default function Products() {
       price: 52.0,
       rating: 3.5,
     },
+    {
+      id: 4,
+      title: 'Asian Spicy Chicken  Wings',
+      img: productImg,
+      price: 59.0,
+      rating: 5,
+    },
+    {
+      id: 5,
+      title: 'Franch Cretam Pumpkin Soup',
+      img: productImg,
+      price: 30.0,
+      rating: 4.5,
+    },
+    {
+      id: 6,
+      title: 'King Prawns with  Delicate Wine Sauce',
+      img: productImg,
+      price: 52.0,
+      rating: 3.5,
+    },
   ];
 
   const categoryLinks = [
@@ -60,7 +82,7 @@ export default function Products() {
   return (
     <div className="container text-quaternary">
       <div className="mx-auto flex max-w-[380px] flex-col gap-x-8 px-2 sm:m-0 sm:max-w-none md:flex-row-reverse md:gap-x-6 lg:mx-auto lg:max-w-[1024px] lg:gap-12 xl:m-0 xl:max-w-none">
-        <div className="md:flex-[3] lg:flex-[3.5]">
+        <div className="md:flex-[3] lg:flex-[4] xl:flex-[5]">
           <div className="flex flex-col items-end sm:flex-row sm:items-center sm:justify-between">
             <p className="mb-8 text-end text-sm font-semibold text-white sm:m-0">
               Showing 1–9 of 12 results
@@ -176,6 +198,19 @@ export default function Products() {
               ))}
             </div>
           </div>
+          <div>
+            <p className="mb-8 flex items-center justify-center gap-3 text-xl text-primary">
+              <span className="seperator"></span>
+              <span>Best Sellers</span>
+              <span className="seperator"></span>
+            </p>
+
+            <div className="flex flex-col gap-5">
+              {products.slice(0, 3).map((product) => (
+                <BestSellerProduct key={product.id} {...product} />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -212,6 +247,23 @@ function Tag({ title }) {
   );
 }
 
+function BestSellerProduct({ title, img, price, rating }) {
+  return (
+    <div className="flex items-center gap-4">
+      <img src={img} className="size-[80px] md:size-[75px]" alt={title} />
+      <div className="flex flex-col gap-1.5">
+        <h2 className="line-clamp-2 text-white transition-colors duration-300 hover:text-primary">
+          <Link href="#">{title}</Link>
+        </h2>
+        <div className="flex items-center gap-0.5 text-xs text-primary">
+          <RatingStars rating={rating} />
+        </div>
+        <span className="text-primary">${price}</span>
+      </div>
+    </div>
+  );
+}
+
 CategoryLink.propTypes = {
   href: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
@@ -220,4 +272,11 @@ CategoryLink.propTypes = {
 ProductsSortBoxOption.propTypes = {
   title: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+};
+
+BestSellerProduct.propTypes = {
+  title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
 };
