@@ -139,27 +139,27 @@ export default function Home() {
         />
         <img
           src={sliderImg2}
-          className="absolute left-[8%] top-[3%] z-[-1] w-[13%] max-w-[155px] lg:left-[14%] lg:top-[5%]"
+          className="absolute left-[8%] xs:left-[12%] top-[3%] z-[-1] w-[13%] max-w-[155px] lg:left-[14%] lg:top-[5%]"
         />
         <img
           src={staticImage1}
-          className="absolute -right-[15%] top-[20%] z-[-3] h-[40%] w-[38%] lg:-right-[10%] lg:top-[3%] lg:h-[60%] lg:w-[34%]"
+          className="absolute -right-[15%] xs:w-[35%] xs:-right-[10%] sm:w-[30%] sm:-right-[6%] xs:h-[45%] top-[20%] z-[-3] h-[40%] w-[38%] lg:-right-[10%] lg:top-[3%] lg:h-[60%] lg:w-[34%]"
         />
         <img
           src={staticImage2}
-          className="absolute -right-[17%] top-[37%] z-[-1] h-[25%] w-[30%] lg:right-[4%] lg:top-[45%] lg:h-[40%] lg:w-[22%]"
+          className="absolute hidden lg:block -right-[17%] top-[37%] z-[-1] h-[25%] w-[30%] lg:-right-[4%] lg:top-[45%] lg:h-[35%] lg:w-[22%]"
         />
         <img
           src={sliderImg2}
-          className="absolute -right-[3%] top-[60%] z-[1] h-[9%] max-h-[100px] w-[17%] max-w-[90px] rotate-180 lg:top-[80%] lg:right-[8%]"
+          className="absolute -right-[3%] xs:w-[15%] top-[60%] sm:w-[12%] sm:h-[15%] z-[1] h-[9%] max-h-[100px] w-[17%] max-w-[90px] rotate-180 lg:top-[75%] lg:right-[8%]"
         />
         <img
           src={staticImage3}
-          className="absolute -left-[15%] top-[10%] z-[-2] h-[28%] w-[30%] lg:-left-[5%] lg:w-[20%]"
+          className="absolute -left-[7%] top-[10%] z-[-2] sm:w-[23%] h-[28%] w-[30%] lg:-left-[5%] lg:w-[20%]"
         />
         <img
           src={staticImage4}
-          className="absolute -left-[20%] top-[33%] z-[-1] h-[44%] w-[41%] lg:top-[35%] lg:h-[55%]"
+          className="absolute -left-[15%] xs:w-[38%] top-[33%] sm:w-[30%] sm:-left-[11%] z-[-1] h-[44%] w-[41%] lg:top-[35%] lg:h-[55%]"
         />
         <img
           src={sliderLogo}
