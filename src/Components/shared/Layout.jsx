@@ -8,10 +8,10 @@ export default function Layout() {
   const isHomePage = pathname === '/';
 
   return (
-    <div>
+    <div className="flex flex-col min-h-screen">
       <Header />
       {!isHomePage && <Banner />}
-      <main className={`${!isHomePage && 'mt-14'} mb-32 text-quaternary`}>
+      <main className={`${!isHomePage && 'mt-14'} mb-32 flex-1 text-quaternary`}>
         <Outlet />
       </main>
       <Footer />
