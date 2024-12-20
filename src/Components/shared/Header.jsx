@@ -1,3 +1,4 @@
+import { cloneElement } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import {
   IoSearch,
@@ -14,31 +15,31 @@ export default function Header() {
     {
       id: 1,
       title: 'Cart',
-      icon: <FiShoppingCart className="text-2xl" />,
+      icon: <FiShoppingCart />,
       href: '/cart',
     },
     {
       id: 2,
       title: 'Support',
-      icon: <FaHeadphones className="text-2xl" />,
+      icon: <FaHeadphones />,
       href: '/support',
     },
     {
       id: 3,
       title: 'Home',
-      icon: <IoHomeOutline className="text-2xl" />,
+      icon: <IoHomeOutline />,
       href: '/',
     },
     {
       id: 4,
       title: 'Menu',
-      icon: <IoFastFoodOutline className="text-2xl" />,
+      icon: <IoFastFoodOutline />,
       href: '/categories',
     },
     {
       id: 5,
       title: 'Gallery',
-      icon: <IoImagesOutline className="text-2xl" />,
+      icon: <IoImagesOutline />,
       href: '/gallery',
     },
   ];
@@ -108,6 +109,7 @@ export default function Header() {
 }
 
 function MobileNavLink({ title, icon, href }) {
+  const styledIcon = cloneElement(icon, { className: 'text-2xl' });
   return (
     <NavLink
       className={({ isActive }) =>
@@ -115,7 +117,7 @@ function MobileNavLink({ title, icon, href }) {
       }
       to={href}
     >
-      {icon}
+      {styledIcon}
       {title}
     </NavLink>
   );
@@ -150,4 +152,4 @@ MobileNavLink.propTypes = {
 DesktopNavLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
-}
+};
