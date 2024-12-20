@@ -114,7 +114,7 @@ export default function Home() {
   ];
 
   return (
-    <div className=''>
+    <div className="">
       <section className="relative flex h-[480px] flex-col items-center justify-center gap-4 overflow-x-hidden px-5 text-center text-white xs:h-[450px] sm:gap-5 md:h-[600px] lg:h-[740px] lg:gap-7 xl:h-[820px]">
         <p className="text-sm italic text-primary md:text-lg lg:mb-2 xl:mb-4 xl:text-xl">
           Welcome to Our Restaurant
@@ -131,10 +131,7 @@ export default function Home() {
           vibrance that embraces the restaurant’s place in the dress circle.
         </p>
 
-        <PrimaryBtn
-          title="DISCOVER MORE"
-          size='sm'
-        />
+        <PrimaryBtn title="DISCOVER MORE" size="sm" />
 
         <img
           src={sliderImg1}
@@ -142,27 +139,27 @@ export default function Home() {
         />
         <img
           src={sliderImg2}
-          className="absolute left-[8%] top-[3%] z-[-1] w-[13%] max-w-[155px] lg:left-[14%] lg:top-[8%]"
+          className="absolute left-[8%] top-[3%] z-[-1] w-[13%] max-w-[155px] lg:left-[14%] lg:top-[5%]"
         />
         <img
           src={staticImage1}
-          className="absolute -right-[15%] top-[20%] z-[-3] h-[40%] w-[38%] lg:-right-[10%] lg:top-[5%] lg:h-[60%] lg:w-[34%]"
+          className="absolute -right-[15%] top-[20%] z-[-3] h-[40%] w-[38%] lg:-right-[10%] lg:top-[3%] lg:h-[60%] lg:w-[34%]"
         />
         <img
           src={staticImage2}
-          className="absolute -right-[17%] top-[37%] z-[-1] h-[25%] w-[30%] lg:-right-[25%] lg:top-[50%] lg:h-[40%]"
+          className="absolute -right-[17%] top-[37%] z-[-1] h-[25%] w-[30%] lg:right-[4%] lg:top-[45%] lg:h-[40%] lg:w-[22%]"
         />
         <img
           src={sliderImg2}
-          className="absolute -right-[3%] top-[60%] z-[-2] h-[9%] max-h-[100px] w-[17%] max-w-[125px] rotate-180 lg:top-[85%]"
+          className="absolute -right-[3%] top-[60%] z-[1] h-[9%] max-h-[100px] w-[17%] max-w-[90px] rotate-180 lg:top-[80%] lg:right-[8%]"
         />
         <img
           src={staticImage3}
-          className="absolute -left-[15%] top-[13%] z-[-2] h-[28%] w-[30%] lg:-left-[5%] lg:w-[20%]"
+          className="absolute -left-[15%] top-[10%] z-[-2] h-[28%] w-[30%] lg:-left-[5%] lg:w-[20%]"
         />
         <img
           src={staticImage4}
-          className="absolute -left-[20%] top-[33%] z-[-1] h-[44%] w-[41%] lg:top-[45%] lg:h-[55%]"
+          className="absolute -left-[20%] top-[33%] z-[-1] h-[44%] w-[41%] lg:top-[35%] lg:h-[55%]"
         />
         <img
           src={sliderLogo}
