@@ -29,7 +29,9 @@ export default function Products() {
       title: 'Franch Cretam Pumpkin Soup',
       img: productImg,
       price: 30.0,
+      discountPrice: 49.99,
       rating: 4.5,
+      popular: true,
     },
     {
       id: 3,
@@ -43,6 +45,7 @@ export default function Products() {
       title: 'Asian Spicy Chicken  Wings',
       img: productImg,
       price: 59.0,
+      discountPrice: 79.99,
       rating: 5,
     },
     {
@@ -58,6 +61,7 @@ export default function Products() {
       img: productImg,
       price: 52.0,
       rating: 3.5,
+      popular: true,
     },
   ];
 
