@@ -25,6 +25,7 @@ export default {
       fontFamily: {
         iransans: ["iransans", "sans-serif"],
         vazir: ["vazir", "sans-serif"],
+        caveat: ["Caveat", "sans-serif"],
       },
     },
   },
