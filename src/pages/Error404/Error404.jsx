@@ -26,9 +26,6 @@ export default function Error404() {
             The page you are looking for was moved, removed, renamed or never
             existed.
           </p>
-          <p className='font-vazir'>
-            سلام چطوری
-          </p>
         </div>
       </div>
       <div className="mt-16 text-center">
