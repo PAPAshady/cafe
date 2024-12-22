@@ -9,10 +9,10 @@ const routes = [
     path: '/',
     element: <Layout />,
     children: [
+      { path: '*', element: <Error404 /> },
       { path: '/', element: <Home /> },
-      { path: 'categories', element: <Categories /> },
-      { path: 'products', element: <Products /> },
-      { path: 'error404', element: <Error404 /> },
+      { path: '/categories', element: <Categories /> },
+      { path: '/products', element: <Products /> },
     ],
   },
 ];
