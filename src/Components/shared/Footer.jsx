@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, memo } from 'react';
 import footerBgImg from '../../assets/images/Footer/footer-bg.png';
 import { IoLocationOutline } from 'react-icons/io5';
 import { LuPhone, LuAtSign } from 'react-icons/lu';
@@ -10,7 +10,7 @@ import {
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-export default function Footer() {
+export default memo(function Footer() {
   const contactListItems = [
     {
       id: 1,
@@ -79,7 +79,7 @@ export default function Footer() {
       </div>
     </footer>
   );
-}
+})
 
 function ContactListItem({ href, value, icon }) {
   const styledIcon = cloneElement(icon, { className: 'text-primary text-2xl' });

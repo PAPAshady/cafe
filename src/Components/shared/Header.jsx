@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, memo } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import {
   IoSearch,
@@ -10,7 +10,7 @@ import { FaHeadphones } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function Header() {
+export default memo(function Header() {
   const mobileNavbarLinks = [
     {
       id: 1,
@@ -106,7 +106,7 @@ export default function Header() {
       </nav>
     </>
   );
-}
+})
 
 function MobileNavLink({ title, icon, href }) {
   const styledIcon = cloneElement(icon, { className: 'text-2xl' });
