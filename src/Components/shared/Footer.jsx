@@ -9,6 +9,7 @@ import {
   FaInstagram,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default memo(function Footer() {
   const contactListItems = [
@@ -59,7 +60,7 @@ export default memo(function Footer() {
           </div>
         </div>
 
-        <div className="flex md:justify-end md:flex-1">
+        <div className="flex md:flex-1 md:justify-end">
           <div>
             <p className="mb-8 text-xl text-white">Working Hours</p>
             <p className="mb-4 text-lg text-primary">
@@ -79,7 +80,7 @@ export default memo(function Footer() {
       </div>
     </footer>
   );
-})
+});
 
 function ContactListItem({ href, value, icon }) {
   const styledIcon = cloneElement(icon, { className: 'text-primary text-2xl' });
@@ -106,3 +107,14 @@ function Social({ href, icon }) {
     </Link>
   );
 }
+
+ContactListItem.propTypes = {
+  href: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+};
+
+Social.propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.element.isRequired,
+};
