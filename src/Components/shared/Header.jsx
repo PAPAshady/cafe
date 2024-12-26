@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import {
   IoSearch,
@@ -6,11 +6,40 @@ import {
   IoFastFoodOutline,
   IoImagesOutline,
 } from 'react-icons/io5';
+import productImg from '../../assets/images/categories/categoryImg2.png';
 import { FaHeadphones } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import CartModal from './CartModal';
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [userCart, setUserCart] = useState([
+    {
+      id: 1,
+      title: 'Asian Spicy Chicken  Wings',
+      img: productImg,
+      price: 59.0,
+      quantity: 1,
+    },
+    {
+      id: 2,
+      title: 'Franch Cretam Pumpkin Soup',
+      img: productImg,
+      price: 30.0,
+      discountPrice: 49.99,
+      quantity: 1,
+    },
+    {
+      id: 3,
+      title: 'King Prawns with  Delicate Wine Sauce',
+      img: productImg,
+      price: 52.0,
+      quantity: 1,
+    },
+  ]);
+
   const mobileNavbarLinks = [
     {
       id: 1,
@@ -52,12 +81,30 @@ export default function Header() {
     { id: 5, title: 'SUPPORT', href: '/support' },
   ];
 
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const updateQuantity = (id, amount) => {
+    setUserCart((prevItems) =>
+      prevItems
+        .map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + amount } : item
+        )
+        .filter((item) => item.quantity > 0)
+    );
+  };
+
+  const clearCart = () => {
+    setUserCart([]);
+  };
+
   return (
     <>
-      <header className="bg-tertiary p-3">
+      <header className="relative bg-tertiary p-3">
         {/* mobile header */}
         <div className="container flex items-center justify-between text-white lg:hidden">
-          <Link to="#" className="text-2xl">
+          <Link to="#" className="text-2xl" onClick={toggleModal}>
             <FiShoppingCart />
           </Link>
 
@@ -69,7 +116,6 @@ export default function Header() {
             <IoSearch />
           </Link>
         </div>
-
         {/* desktop header */}
         <div className="container hidden items-center justify-between py-4 lg:flex">
           <Link className="text-2xl font-semibold text-primary" to="/">
@@ -97,6 +143,14 @@ export default function Header() {
             </button>
           </div>
         </div>
+        {/* modal */}
+        <CartModal
+          isOpen={isModalOpen}
+          userCart={userCart}
+          toggleModal={toggleModal}
+          updateQuantity={updateQuantity}
+          clearCart={clearCart}
+        />
       </header>
 
       <nav className="fixed bottom-0 z-[5] flex w-full items-center justify-center border border-secondary bg-tertiary text-white lg:hidden">
