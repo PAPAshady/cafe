@@ -54,7 +54,7 @@ export default memo(function Header() {
 
   return (
     <>
-      <header className="bg-tertiary p-3">
+      <header className="sticky top-0 z-10 bg-tertiary p-3">
         {/* mobile header */}
         <div className="container flex items-center justify-between text-white lg:hidden">
           <Link to="#" className="text-2xl">
@@ -106,7 +106,7 @@ export default memo(function Header() {
       </nav>
     </>
   );
-})
+});
 
 function MobileNavLink({ title, icon, href }) {
   const styledIcon = cloneElement(icon, { className: 'text-2xl' });
