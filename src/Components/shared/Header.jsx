@@ -9,8 +9,7 @@ import {
 import { FaHeadphones } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
-export default memo(function Header() {
+function Header({ openCartHandler }) {
   const mobileNavbarLinks = [
     {
       id: 1,
@@ -57,7 +56,7 @@ export default memo(function Header() {
       <header className="sticky top-0 z-10 bg-tertiary p-3">
         {/* mobile header */}
         <div className="container flex items-center justify-between text-white lg:hidden">
-          <Link to="#" className="text-2xl">
+          <Link to="#" className="text-2xl" onClick={openCartHandler}>
             <FiShoppingCart />
           </Link>
 
@@ -84,7 +83,11 @@ export default memo(function Header() {
 
           <div className="flex items-center justify-between gap-6">
             <div className="flex items-center gap-8 text-2xl text-white">
-              <Link to="#" className="duration-300 hover:text-primary">
+              <Link
+                to="#"
+                className="duration-300 hover:text-primary"
+                onClick={openCartHandler}
+              >
                 <FiShoppingCart />
               </Link>
 
@@ -106,7 +109,7 @@ export default memo(function Header() {
       </nav>
     </>
   );
-});
+}
 
 function MobileNavLink({ title, icon, href }) {
   const styledIcon = cloneElement(icon, { className: 'text-2xl' });
@@ -153,3 +156,10 @@ DesktopNavLink.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
 };
+
+const MemoizedHeader = memo(Header);
+Header.propTypes = {
+  openCartHandler: PropTypes.func.isRequired,
+};
+
+export default MemoizedHeader;
