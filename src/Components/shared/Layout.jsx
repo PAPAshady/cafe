@@ -6,6 +6,7 @@ import Banner from './Banner';
 import Footer from './Footer';
 import CartProduct from '../CartProduct';
 import { GoArrowUp } from 'react-icons/go';
+import { IoClose } from 'react-icons/io5';
 import PrimaryBtn from '../PrimaryBtn/PrimaryBtn';
 import productImg1 from '../../assets/images/categories/categoryImg1.png';
 import productImg2 from '../../assets/images/categories/categoryImg2.png';
@@ -28,6 +29,7 @@ export default function Layout() {
       img: productImg1,
       href: '#',
       quantity: 3,
+      status: 'on hold',
     },
     {
       id: 2,
@@ -36,6 +38,7 @@ export default function Layout() {
       img: productImg2,
       href: '#',
       quantity: 2,
+      status: 'delivered',
     },
     {
       id: 3,
@@ -44,6 +47,7 @@ export default function Layout() {
       img: productImg3,
       href: '#',
       quantity: 1,
+      status: 'preparing',
     },
     {
       id: 4,
@@ -52,6 +56,7 @@ export default function Layout() {
       img: productImg1,
       href: '#',
       quantity: 2,
+      status: 'cancelled',
     },
   ];
 
@@ -65,9 +70,7 @@ export default function Layout() {
 
   const openCartHandler = useCallback(() => setShowCart(true), []);
 
-  const closeCartHandler = useCallback((e) => {
-    e.target === e.currentTarget && setShowCart(false);
-  }, []);
+  const closeCartHandler = useCallback(() => setShowCart(false), []);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -96,18 +99,28 @@ export default function Layout() {
 
       {/* Shopping cart Dropdown */}
       <div
-        className={`fixed flex h-full w-full items-start justify-end bg-[rgba(0,0,0,.5)] p-5 transition-all duration-300 ${showCart ? 'visible z-20 opacity-100' : 'invisible z-[-1] opacity-0'}`}
-        onClick={closeCartHandler}
+        className={`fixed flex h-full w-full items-start justify-end bg-[rgba(0,0,0,.5)] transition-all duration-300 lg:p-5 ${showCart ? 'visible z-20 opacity-100' : 'invisible z-[-1] opacity-0'}`}
+        // close the shopping cart if user clicked anywhere outside of the shopping cart modal,
+        onClick={(e) => e.target === e.currentTarget && closeCartHandler()}
       >
         <div
-          className={`absolute top-7 flex max-h-[600px] w-[375px] flex-col border border-primary bg-tertiary p-4 transition-all duration-1000 ${showCart ? 'right-8' : '-right-[70%]'}`}
+          className={`top-7 flex h-full w-full flex-col border border-primary bg-tertiary p-4 transition-all duration-1000 lg:absolute lg:max-h-[600px] lg:w-[375px] ${showCart ? 'right-8' : '-right-[70%]'}`}
         >
+          <div className="px- flex items-center justify-between border-b border-secondary pb-5">
+            <p className="text-xl">Shopping Cart</p>
+            <button
+              className="px-2 text-2xl transition-colors hover:text-red-400"
+              onClick={closeCartHandler}
+            >
+              <IoClose />
+            </button>
+          </div>
           <div className="flex flex-1 flex-col gap-8 overflow-y-auto p-5">
             {cartProducts.map((product) => (
               <CartProduct key={product.id} {...product} />
             ))}
           </div>
-          <div className="border-t border-secondary px-4 py-5">
+          <div className="border-t border-secondary px-4 pt-5">
             <p className="mb-6 text-2xl font-thin text-white">
               Total: <span className="text-primary">$359.00</span>
             </p>

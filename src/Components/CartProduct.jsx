@@ -4,7 +4,14 @@ import { IoClose } from 'react-icons/io5';
 import { FaRegTrashCan } from 'react-icons/fa6';
 import PropTypes from 'prop-types';
 
-function CartProduct({ title, img, href, price, quantity }) {
+function CartProduct({ title, img, href, price, quantity, status }) {
+  const statusColors = {
+    'on hold': 'text-[#7c8083]',
+    preparing: 'text-[#ffb800]',
+    delivered: 'text-[#22c55e]',
+    cancelled: 'text-[#ef4444]',
+  };
+
   return (
     <div className="flex items-center">
       <Link className="me-4 block size-[80px]" to={href}>
@@ -18,11 +25,17 @@ function CartProduct({ title, img, href, price, quantity }) {
           >
             {title}
           </Link>
-          <p className="mt-2 flex items-center text-lg">
-            {quantity}
-            <IoClose className="pt-1 text-sm" />
-            <span className="text-primary-600"> ${price}</span>
-          </p>
+          <div className="flex items-center gap-3">
+            <p className="mt-2 flex items-center text-lg">
+              {quantity}
+              <IoClose className="pt-1 text-sm" />
+              <span className="text-primary-600"> ${price}</span>
+            </p>
+            |
+            <p className={`pt-1 text-sm capitalize ${statusColors[status]}`}>
+              {status}
+            </p>
+          </div>
         </div>
       </div>
       <button className="px-1 py-4 text-lg transition-colors duration-300 hover:text-red-500">
@@ -38,8 +51,7 @@ CartProduct.propTypes = {
   href: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   quantity: PropTypes.number.isRequired,
+  status: PropTypes.string.isRequired,
 };
 
-const MemoizedCartProduct = memo(CartProduct);
-
-export default MemoizedCartProduct;
+export default memo(CartProduct);
