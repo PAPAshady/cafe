@@ -6,113 +6,16 @@ import staticImage1 from '../../assets/images/home-page/staticImage1.jpg';
 import staticImage2 from '../../assets/images/home-page/staticImage2.jpg';
 import staticImage3 from '../../assets/images/home-page/staticImage3.jpg';
 import staticImage4 from '../../assets/images/home-page/staticImage4.jpg';
-import servicesImg1 from '../../assets/images/home-page/servicesImg1.png';
-import servicesImg2 from '../../assets/images/home-page/servicesImg2.png';
-import servicesImg3 from '../../assets/images/home-page/servicesImg3.png';
-import servicesImg4 from '../../assets/images/home-page/servicesImg4.png';
 import aboutUsImg1 from '../../assets/images/home-page/aboutUsImg1.png';
 import aboutUsImg2 from '../../assets/images/home-page/aboutUsImg2.png';
 import aboutUsImg3 from '../../assets/images/home-page/aboutUsImg3.png';
 import menuBgColumn from '../../assets/images/home-page/menuBgColumn.png';
 import { Link } from 'react-router-dom';
+import { servicesItemsArray, menuItems } from '../../data';
 import PropTypes from 'prop-types';
 import './Home.css';
 
 export default function Home() {
-  const servicesItemsArray = [
-    {
-      id: 1,
-      title: 'Fresh Products',
-      description: 'For each dish, the growth of every element & the selection',
-      img: servicesImg1,
-      href: '#',
-    },
-    {
-      id: 2,
-      title: 'Fresh Products',
-      description: 'For each dish, the growth of every element & the selection',
-      img: servicesImg2,
-      href: '#',
-    },
-    {
-      id: 3,
-      title: 'Fresh Products',
-      description: 'For each dish, the growth of every element & the selection',
-      img: servicesImg3,
-      href: '#',
-    },
-    {
-      id: 4,
-      title: 'Fresh Products',
-      description: 'For each dish, the growth of every element & the selection',
-      img: servicesImg4,
-      href: '#',
-    },
-  ];
-
-  const menuItems = [
-    {
-      id: 1,
-      title: 'Raw Scallops from Erquy',
-      ingredients: 'Candied Jerusalem artichokes, truffle',
-      price: 38,
-    },
-    {
-      id: 2,
-      title: 'Sea Bass Ceviche',
-      ingredients: 'Avocado, butternut, lime',
-      price: 36,
-    },
-    {
-      id: 3,
-      title: 'Tender Octopus and Fennel',
-      ingredients: 'Citrus, wild rocket condiment',
-      price: 38,
-    },
-    {
-      id: 4,
-      title: 'Thinly Sliced Brittany Artichokes',
-      ingredients: 'Citrus, wild rocket condiment',
-      price: 42,
-    },
-    {
-      id: 5,
-      title: 'Celeriac and Truffle Ravioli',
-      ingredients: 'Roasted langoustine, consommé',
-      price: 32,
-    },
-    {
-      id: 6,
-      title: 'Viennese Veal Cutlet',
-      ingredients: 'Ricotta and spinach gnocchi, Caccio de Pepe',
-      price: 38,
-    },
-    {
-      id: 7,
-      title: 'Corrèze Pan-seared Veal Liver',
-      ingredients: 'Olive oil mashed potato, onion jus',
-      price: 36,
-    },
-    {
-      id: 8,
-      title: 'Cod Filet Cooked on One Side',
-      ingredients: 'Chorizo, chickpea espuma, pequillos',
-      price: 38,
-    },
-    {
-      id: 9,
-      title: 'Grilled Veal Filet Mignon',
-      ingredients: 'Pumpkin, endives with hazelnuts',
-      price: 42,
-    },
-    {
-      id: 10,
-      title: 'Grilled Black Angus Sirloin Steak',
-      ingredients: 'Coin de rue’ potatoes, Béarnaise sauce',
-      price: 32,
-    },
-  ];
-
   return (
     <div>
       <section className="relative flex h-[480px] flex-col items-center justify-center gap-4 overflow-x-hidden px-5 text-center text-white xs:h-[450px] sm:gap-5 md:h-[600px] lg:h-[740px] lg:gap-7 xl:h-[820px]">

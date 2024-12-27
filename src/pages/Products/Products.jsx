@@ -1,87 +1,19 @@
 import { useState } from 'react';
 import { Range, getTrackBackground } from 'react-range';
 import PropTypes from 'prop-types';
-import productImg from '../../assets/images/categories/categoryImg2.png';
 import ProductCard from '../../Components/ProductCard';
 import RatingStars from '../../Components/RatingStars';
 import { IoSearchOutline, IoChevronForward } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
+import {
+  productsSortingOptions,
+  products,
+  categoryLinks,
+  tags,
+} from '../../data';
 
 export default function Products() {
   const [values, setValues] = useState([50, 80]); // Default Values for price range slider
-
-  const productsSortingOptions = [
-    { id: 1, title: 'Sort by popularity', value: 'popular' },
-    { id: 2, title: 'Sort by average rating', value: 'rating' },
-    { id: 3, title: 'Sort by latest', value: 'latest' },
-  ];
-
-  const products = [
-    {
-      id: 1,
-      title: 'Asian Spicy Chicken  Wings',
-      img: productImg,
-      price: 59.0,
-      rating: 5,
-    },
-    {
-      id: 2,
-      title: 'Franch Cretam Pumpkin Soup',
-      img: productImg,
-      price: 30.0,
-      discountPrice: 49.99,
-      rating: 4.5,
-      popular: true,
-    },
-    {
-      id: 3,
-      title: 'King Prawns with  Delicate Wine Sauce',
-      img: productImg,
-      price: 52.0,
-      rating: 3.5,
-    },
-    {
-      id: 4,
-      title: 'Asian Spicy Chicken  Wings',
-      img: productImg,
-      price: 59.0,
-      discountPrice: 79.99,
-      rating: 5,
-    },
-    {
-      id: 5,
-      title: 'Franch Cretam Pumpkin Soup',
-      img: productImg,
-      price: 30.0,
-      rating: 4.5,
-    },
-    {
-      id: 6,
-      title: 'King Prawns with  Delicate Wine Sauce',
-      img: productImg,
-      price: 52.0,
-      rating: 3.5,
-      popular: true,
-    },
-  ];
-
-  const categoryLinks = [
-    { id: 1, title: 'Deserts', href: '/categories?cat=deserts' },
-    { id: 2, title: 'Healthy Food', href: '/categories?cat=deserts' },
-    { id: 3, title: 'Main Dishes', href: '/categories?cat=main' },
-    { id: 4, title: 'Snacks', href: '/categories?cat=snack' },
-  ];
-
-  const tags = [
-    { id: 1, title: 'Cocktail' },
-    { id: 2, title: 'Coffee' },
-    { id: 3, title: 'Deserts' },
-    { id: 4, title: 'Food' },
-    { id: 5, title: 'Menu' },
-    { id: 6, title: 'Recipes' },
-    { id: 7, title: 'Restaurant' },
-    { id: 8, title: 'Vegan menu' },
-  ];
 
   return (
     <div className="container text-quaternary">

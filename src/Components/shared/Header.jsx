@@ -1,57 +1,11 @@
 import { cloneElement, memo } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
-import {
-  IoSearch,
-  IoHomeOutline,
-  IoFastFoodOutline,
-  IoImagesOutline,
-} from 'react-icons/io5';
-import { FaHeadphones } from 'react-icons/fa6';
+import { IoSearch } from 'react-icons/io5';
 import { Link, NavLink } from 'react-router-dom';
+import { mobileNavbarLinks, desktopNavbarLinks } from '../../data';
 import PropTypes from 'prop-types';
 
 export default memo(function Header() {
-  const mobileNavbarLinks = [
-    {
-      id: 1,
-      title: 'Cart',
-      icon: <FiShoppingCart />,
-      href: '/cart',
-    },
-    {
-      id: 2,
-      title: 'Support',
-      icon: <FaHeadphones />,
-      href: '/support',
-    },
-    {
-      id: 3,
-      title: 'Home',
-      icon: <IoHomeOutline />,
-      href: '/',
-    },
-    {
-      id: 4,
-      title: 'Menu',
-      icon: <IoFastFoodOutline />,
-      href: '/categories',
-    },
-    {
-      id: 5,
-      title: 'Gallery',
-      icon: <IoImagesOutline />,
-      href: '/gallery',
-    },
-  ];
-
-  const desktopNavbarLinks = [
-    { id: 1, title: 'HOME', href: '/' },
-    { id: 2, title: 'MENU', href: '/categories' },
-    { id: 3, title: 'ABOUT US', href: '/about-us' },
-    { id: 4, title: 'GALLERY', href: '/gallery' },
-    { id: 5, title: 'SUPPORT', href: '/support' },
-  ];
-
   return (
     <>
       <header className="sticky top-0 z-10 bg-tertiary p-3">
