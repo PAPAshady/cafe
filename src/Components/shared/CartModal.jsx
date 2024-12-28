@@ -1,5 +1,6 @@
 // import { useState } from 'react';
 import PropTypes from 'prop-types';
+import { useEffect, useRef } from 'react';
 import { IoTrashBin } from 'react-icons/io5';
 // import React from 'react';
 // import productImg from '../../assets/images/categories/categoryImg2.png';
@@ -11,9 +12,26 @@ export default function CartModal({
   updateQuantity,
   clearCart,
 }) {
-  const totalPrice = userCart.reduce((sum, item) => sum + item.price, 0);
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const isClickedOutside = (e) => {
+      if (modalRef.current && !modalRef.current.contains(e.target)) {
+        toggleModal();
+      }
+    };
+    if (isOpen) {
+      document.addEventListener('mousedown', isClickedOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', isClickedOutside);
+    };
+  }, [isOpen, toggleModal]);
 
   if (!isOpen) return null;
+
+  const totalPrice = userCart.reduce((sum, item) => sum + item.quantity * item.price, 0);
 
   return (
     <div
@@ -22,13 +40,14 @@ export default function CartModal({
     >
       <div
         className="w-96 rounded bg-secondary p-4 shadow-lg"
+        ref={modalRef}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-end justify-between">
           <h2 className="mb-4 text-lg font-bold">Cart Bag</h2>
           <button onClick={clearCart}>CLEAR CART</button>
         </div>
-        {userCart.length > 0 ? (
+        {userCart.length ? (
           <div>
             {/* Cart Items List */}
             <ul>
@@ -89,7 +108,7 @@ export default function CartModal({
   );
 }
 
-CartModal.proptype = {
+CartModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   userCart: PropTypes.arrayOf(
     PropTypes.shape({

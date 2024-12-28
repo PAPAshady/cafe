@@ -1,16 +1,11 @@
 import { cloneElement, useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
-import {
-  IoSearch,
-  IoHomeOutline,
-  IoFastFoodOutline,
-  IoImagesOutline,
-} from 'react-icons/io5';
+import { IoSearch } from 'react-icons/io5';
 import productImg from '../../assets/images/categories/categoryImg2.png';
-import { FaHeadphones } from 'react-icons/fa6';
 import { Link, NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import CartModal from './CartModal';
+import { mobileNavbarLinks, desktopNavbarLinks } from '../../data';
 
 export default function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,47 +35,6 @@ export default function Header() {
     },
   ]);
 
-  const mobileNavbarLinks = [
-    {
-      id: 1,
-      title: 'Cart',
-      icon: <FiShoppingCart />,
-      href: '/cart',
-    },
-    {
-      id: 2,
-      title: 'Support',
-      icon: <FaHeadphones />,
-      href: '/support',
-    },
-    {
-      id: 3,
-      title: 'Home',
-      icon: <IoHomeOutline />,
-      href: '/',
-    },
-    {
-      id: 4,
-      title: 'Menu',
-      icon: <IoFastFoodOutline />,
-      href: '/categories',
-    },
-    {
-      id: 5,
-      title: 'Gallery',
-      icon: <IoImagesOutline />,
-      href: '/gallery',
-    },
-  ];
-
-  const desktopNavbarLinks = [
-    { id: 1, title: 'HOME', href: '/' },
-    { id: 2, title: 'MENU', href: '/categories' },
-    { id: 3, title: 'ABOUT US', href: '/about-us' },
-    { id: 4, title: 'GALLERY', href: '/gallery' },
-    { id: 5, title: 'SUPPORT', href: '/support' },
-  ];
-
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
   };
@@ -91,7 +45,7 @@ export default function Header() {
         .map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + amount } : item
         )
-        .filter((item) => item.quantity > 0)
+        .filter((item) => item.quantity)
     );
   };
 

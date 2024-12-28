@@ -1,34 +1,9 @@
 import { cloneElement } from 'react';
 import footerBgImg from '../../assets/images/Footer/footer-bg.png';
-import { IoLocationOutline } from 'react-icons/io5';
-import { LuPhone, LuAtSign } from 'react-icons/lu';
-import {
-  FaTwitter,
-  FaFacebookF,
-  FaLinkedinIn,
-  FaInstagram,
-} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { contactListItems, socials } from '../../data';
 
 export default function Footer() {
-  const contactListItems = [
-    {
-      id: 1,
-      href: '#',
-      value: '5 Rue Dalou, 75015 Paris',
-      icon: <IoLocationOutline />,
-    },
-    { id: 2, href: '#', value: '+33 156 78 89 56', icon: <LuPhone /> },
-    { id: 3, href: '#', value: 'benoit@mail.com', icon: <LuAtSign /> },
-  ];
-
-  const socials = [
-    { id: 1, href: '#', icon: <FaTwitter /> },
-    { id: 2, href: '#', icon: <FaFacebookF /> },
-    { id: 3, href: '#', icon: <FaLinkedinIn /> },
-    { id: 4, href: '#', icon: <FaInstagram /> },
-  ];
-
   return (
     <footer
       style={{ backgroundImage: `url(${footerBgImg})` }}
@@ -59,7 +34,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex md:justify-end md:flex-1">
+        <div className="flex md:flex-1 md:justify-end">
           <div>
             <p className="mb-8 text-xl text-white">Working Hours</p>
             <p className="mb-4 text-lg text-primary">
