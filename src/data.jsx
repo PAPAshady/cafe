@@ -5,7 +5,6 @@ import servicesImg1 from './assets/images/home-page/servicesImg1.png';
 import servicesImg2 from './assets/images/home-page/servicesImg2.png';
 import servicesImg3 from './assets/images/home-page/servicesImg3.png';
 import servicesImg4 from './assets/images/home-page/servicesImg4.png';
-import productImg from './assets/images/categories/categoryImg2.png';
 import {
   IoHomeOutline,
   IoFastFoodOutline,
@@ -176,4 +175,14 @@ export const menuItems = [
     ingredients: 'Coin de rue’ potatoes, Béarnaise sauce',
     price: 32,
   },
+];
+
+///*** PRODUCTS PAGE DATA ***///
+
+export const categories = [
+  { id: 1, title: 'Vegan', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 2, title: 'Salad', icon: <IoFastFoodOutline />, isActive: true },
+  { id: 3, title: 'Drinks', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 4, title: 'Main dishes', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 5, title: 'Deserts', icon: <IoFastFoodOutline />, isActive: false },
 ];
