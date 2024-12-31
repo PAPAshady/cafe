@@ -44,7 +44,7 @@ export const mobileNavbarLinks = [
     id: 4,
     title: 'Menu',
     icon: <IoFastFoodOutline />,
-    href: '/categories',
+    href: '/products',
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ export const mobileNavbarLinks = [
 
 export const desktopNavbarLinks = [
   { id: 1, title: 'HOME', href: '/' },
-  { id: 2, title: 'MENU', href: '/categories' },
+  { id: 2, title: 'MENU', href: '/products' },
   { id: 3, title: 'ABOUT US', href: '/about-us' },
   { id: 4, title: 'GALLERY', href: '/gallery' },
   { id: 5, title: 'SUPPORT', href: '/support' },
