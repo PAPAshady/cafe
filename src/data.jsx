@@ -17,6 +17,9 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
+import productImg01 from './assets/images/Products/productImg01.png'
+import productImg02 from './assets/images/Products/productImg02.png'
+import productImg03 from './assets/images/Products/productImg03.png'
 
 ///*** HEADER DATA ***///
 
@@ -186,3 +189,26 @@ export const categories = [
   { id: 4, title: 'Main dishes', icon: <IoFastFoodOutline />, isActive: false },
   { id: 5, title: 'Deserts', icon: <IoFastFoodOutline />, isActive: false },
 ];
+
+export const products = [
+  {id: 1, title: 'Greek Salad', img: productImg01,  rate: 4.5, price: 50, category: 'salad' },
+  {id: 2, title: 'Buffalo Burger', img:productImg02,  rate: 4, price: 80, category: 'burger' },
+  {id: 3, title: 'Latte', img: productImg03,  rate: 3, price: 30, category: 'drink' },
+  {id: 4, title: 'Pizza Rossini', img: productImg01,  rate: 5, price: 90, category: 'pizza' },
+  {id: 5, title: 'Cheesecake', img: productImg02,  rate: 3.5, price: 20, category: 'cake' },
+  {id: 6, title: 'Bacon Burger', img: productImg03,  rate: 4, price: 35, category: 'burger' },
+  {id: 7, title: 'Chicken Salad', img: productImg01,  rate: 4.5, price: 18, category: 'salad' },
+  {id: 8, title: 'Coffee cake', img: productImg02,  rate: 4.7, price: 24, category: 'cake' },
+  {id: 9, title: 'Cheese Burger', img: productImg03,  rate: 3.7, price: 29, category: 'burger' },
+  {id: 10, title: 'Espresso', img: productImg01,  rate: 3.9, price: 36, category: 'drink' },
+  {id: 11, title: 'Carrot cake', img: productImg02,  rate: 4.3, price: 45, category: 'cake' },
+  {id: 12, title: 'Cappuccino', img: productImg03,  rate: 5, price: 9, category: 'drink' },
+  {id: 13, title: 'Pizza Margherita', img: productImg01,  rate: 4.6, price: 79, category: 'pizza' },
+  {id: 14, title: 'Greek Burger', img: productImg02,  rate: 4.9, price: 38, category: 'burger' },
+  {id: 15, title: 'Americano', img: productImg03,  rate: 3.3, price: 19, category: 'drink' },
+  {id: 16, title: 'Pizza Bianca', img: productImg01,  rate: 4.4, price: 99, category: 'pizza' },
+  {id: 17, title: 'Chef Salad', img: productImg02,  rate: 5, price: 10, category: 'salad' },
+  {id: 18, title: 'Caesar Salad', img: productImg03,  rate: 3, price: 87, category: 'salad' },
+  {id: 19, title: 'Red velvet cake', img: productImg01,  rate: 2.5, price: 65, category: 'cake' },
+  {id: 20, title: 'Chili Burger', img: productImg02,  rate: 4, price: 44, category: 'burger' },
+]
