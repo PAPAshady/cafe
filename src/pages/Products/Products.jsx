@@ -46,7 +46,7 @@ export default function Products() {
       </div>
 
       {/* PRODUCT CARDS */}
-      <div className="grid w-full grid-cols-2 items-center justify-center gap-5 px-2">
+      <div className="grid w-full grid-cols-2 items-center justify-center gap-3 px-2">
         {products.map((product) => (
           <ProductCard {...product} key={product.id} />
         ))}
