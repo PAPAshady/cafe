@@ -1,87 +1,79 @@
-import { useState } from 'react';
-// import PrimaryBtn from './PrimaryBtn/PrimaryBtn';
-import RatingStars from './RatingStars';
+import { useState, memo } from 'react';
+import { FaStar } from 'react-icons/fa';
+import { IoTrash } from 'react-icons/io5';
+import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
-import { FaPlus, FaMinus } from 'react-icons/fa6';
 import PropTypes from 'prop-types';
 
-export default function ProductCard({
-  img,
-  title,
-  price,
-  discountPrice,
-  rating,
-  popular,
-}) {
-  const [productNumber, setProductNumber] = useState(0);
+function ProductCard({ title, img, rate, price }) {
+  const [count, setCount] = useState(null);
+  const increment = () => {
+    setCount((prevCount) => (!prevCount ? 1 : prevCount + 1));
+  };
+
+  const decrement = () => {
+    setCount((prevCount) => (prevCount ? prevCount - 1 : null));
+  };
 
   return (
-    <div className="group/btn relative flex items-center justify-center overflow-hidden">
-      <div className="relative flex w-full flex-col border border-primary bg-tertiary p-2">
+    <div
+      className="relative h-32 w-full overflow-hidden rounded-3xl bg-cover bg-center min-[400px]:h-40"
+      style={{ backgroundImage: `url(${img})` }}
+    >
+      <div className="absolute z-[1] h-full w-full bg-gradient-to-b from-[rgba(104,104,104,0.14)] from-[45%] to-[rgba(241,146,21,0.77)] to-[100%]"></div>
+      <div className="absolute bottom-0 left-0 z-[2] w-full items-center justify-between px-3 pb-3 text-white">
         <Link to="#">
-          <img loading="lazy" className="mx-auto size-[190px] pt-4" src={img} />
+          <h5 className="mb-0.5 truncate text-base font-semibold min-[400px]:text-lg">
+            {title}
+          </h5>
         </Link>
-        <div className="flex flex-col px-4 py-6">
-          <h2 className="mb-2 line-clamp-2 h-16 text-[1.3rem] font-[600] text-white duration-200 hover:text-primary">
-            <Link to="#">{title}</Link>
-          </h2>
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-3">
-                {discountPrice && (
-                  <span className="text-2xl text-neutral-600 line-through">
-                    ${discountPrice}
-                  </span>
-                )}
-                <span className="text-2xl text-primary">${price}</span>
-              </div>
-              <div className="mt-4 flex items-center gap-0.5 text-primary">
-                <RatingStars rating={rating} />
-              </div>
+        <div className="flex items-center justify-between">
+          <p>{price.toFixed(2)}$</p>
+          {!count ? (
+            <ProductCardButton icon={<FiPlus />} clickHandler={increment} />
+          ) : (
+            <div className="flex items-center justify-between gap-1">
+              <ProductCardButton
+                icon={count > 1 ? <FiMinus /> : <IoTrash />}
+                clickHandler={decrement}
+              />
+              <span className="text-base">{count}</span>
+              <ProductCardButton icon={<FiPlus />} clickHandler={increment} />
             </div>
-            <div className="flex items-center bg-[#1a1f23] text-lg">
-              <button
-                onClick={() =>
-                  setProductNumber((prev) => (prev ? prev - 1 : prev))
-                }
-                className="px-2 py-3 text-primary"
-              >
-                <FaMinus />
-              </button>
-              <span className="w-8 bg-transparent text-center text-white">
-                {productNumber}
-              </span>
-              <button
-                onClick={() =>
-                  setProductNumber((prev) => (prev < 50 ? prev + 1 : prev))
-                }
-                className="px-2 py-3 text-primary"
-              >
-                <FaPlus />
-              </button>
-            </div>
-          </div>
+          )}
         </div>
       </div>
-      {/* <PrimaryBtn
-        title="ADD TO CART"
-        ParentClassName="absolute invisible opacity-0 transition-all duration-300 group-hover/btn:opacity-100 group-hover/btn:visible"
-        size="lg"
-      /> */}
-      {popular && (
-        <span className="absolute -left-5 -top-5 flex size-[4.8rem] items-end justify-center rounded-full bg-primary pb-[1.2rem] pl-4 text-lg italic text-tertiary">
-          Sale!
+      <div className="absolute left-3 top-3 font-semibold text-white">
+        <span className="flex items-center gap-1">
+          <FaStar className="text-yellow-400" />
+          {rate}
         </span>
-      )}
+      </div>
     </div>
   );
 }
 
+function ProductCardButton({ icon, clickHandler }) {
+  return (
+    <button
+      className="flex size-8 items-center justify-center rounded-full border text-white"
+      onClick={clickHandler}
+    >
+      {icon}
+    </button>
+  );
+}
+
 ProductCard.propTypes = {
-  img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  rate: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
-  discountPrice: PropTypes.number,
-  rating: PropTypes.number.isRequired,
-  popular: PropTypes.bool,
 };
+
+ProductCardButton.propTypes = {
+  icon: PropTypes.element.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+};
+
+export default memo(ProductCard);
