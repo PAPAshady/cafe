@@ -23,7 +23,7 @@ function ProductCard({ title, img, rate, price }) {
       <div className="absolute z-[1] h-full w-full bg-gradient-to-b from-[rgba(104,104,104,0.14)] from-[45%] to-[rgba(241,146,21,0.77)] to-[100%]"></div>
       <div className="absolute bottom-0 left-0 z-[2] w-full items-center justify-between px-3 pb-3 text-white">
         <Link to="#">
-          <h5 className="mb-0.5 truncate text-base font-semibold min-[400px]:text-lg">
+          <h5 className="mb-0.5 truncate font-semibold text-lg">
             {title}
           </h5>
         </Link>
