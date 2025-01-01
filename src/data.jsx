@@ -5,7 +5,6 @@ import servicesImg1 from './assets/images/home-page/servicesImg1.png';
 import servicesImg2 from './assets/images/home-page/servicesImg2.png';
 import servicesImg3 from './assets/images/home-page/servicesImg3.png';
 import servicesImg4 from './assets/images/home-page/servicesImg4.png';
-import productImg from './assets/images/categories/categoryImg2.png';
 import {
   IoHomeOutline,
   IoFastFoodOutline,
@@ -18,6 +17,9 @@ import {
   FaLinkedinIn,
   FaInstagram,
 } from 'react-icons/fa';
+import productImg01 from './assets/images/Products/productImg01.png'
+import productImg02 from './assets/images/Products/productImg02.png'
+import productImg03 from './assets/images/Products/productImg03.png'
 
 ///*** HEADER DATA ***///
 
@@ -44,7 +46,7 @@ export const mobileNavbarLinks = [
     id: 4,
     title: 'Menu',
     icon: <IoFastFoodOutline />,
-    href: '/categories',
+    href: '/products',
   },
   {
     id: 5,
@@ -56,7 +58,7 @@ export const mobileNavbarLinks = [
 
 export const desktopNavbarLinks = [
   { id: 1, title: 'HOME', href: '/' },
-  { id: 2, title: 'MENU', href: '/categories' },
+  { id: 2, title: 'MENU', href: '/products' },
   { id: 3, title: 'ABOUT US', href: '/about-us' },
   { id: 4, title: 'GALLERY', href: '/gallery' },
   { id: 5, title: 'SUPPORT', href: '/support' },
@@ -180,75 +182,33 @@ export const menuItems = [
 
 ///*** PRODUCTS PAGE DATA ***///
 
-export const productsSortingOptions = [
-  { id: 1, title: 'Sort by popularity', value: 'popular' },
-  { id: 2, title: 'Sort by average rating', value: 'rating' },
-  { id: 3, title: 'Sort by latest', value: 'latest' },
+export const categories = [
+  { id: 1, title: 'Vegan', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 2, title: 'Salad', icon: <IoFastFoodOutline />, isActive: true },
+  { id: 3, title: 'Drinks', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 4, title: 'Main dishes', icon: <IoFastFoodOutline />, isActive: false },
+  { id: 5, title: 'Deserts', icon: <IoFastFoodOutline />, isActive: false },
 ];
 
 export const products = [
-  {
-    id: 1,
-    title: 'Asian Spicy Chicken  Wings',
-    img: productImg,
-    price: 59.0,
-    rating: 5,
-  },
-  {
-    id: 2,
-    title: 'Franch Cretam Pumpkin Soup',
-    img: productImg,
-    price: 30.0,
-    discountPrice: 49.99,
-    rating: 4.5,
-    popular: true,
-  },
-  {
-    id: 3,
-    title: 'King Prawns with  Delicate Wine Sauce',
-    img: productImg,
-    price: 52.0,
-    rating: 3.5,
-  },
-  {
-    id: 4,
-    title: 'Asian Spicy Chicken  Wings',
-    img: productImg,
-    price: 59.0,
-    discountPrice: 79.99,
-    rating: 5,
-  },
-  {
-    id: 5,
-    title: 'Franch Cretam Pumpkin Soup',
-    img: productImg,
-    price: 30.0,
-    rating: 4.5,
-  },
-  {
-    id: 6,
-    title: 'King Prawns with  Delicate Wine Sauce',
-    img: productImg,
-    price: 52.0,
-    rating: 3.5,
-    popular: true,
-  },
-];
-
-export const categoryLinks = [
-  { id: 1, title: 'Deserts', href: '/categories?cat=deserts' },
-  { id: 2, title: 'Healthy Food', href: '/categories?cat=deserts' },
-  { id: 3, title: 'Main Dishes', href: '/categories?cat=main' },
-  { id: 4, title: 'Snacks', href: '/categories?cat=snack' },
-];
-
-export const tags = [
-  { id: 1, title: 'Cocktail' },
-  { id: 2, title: 'Coffee' },
-  { id: 3, title: 'Deserts' },
-  { id: 4, title: 'Food' },
-  { id: 5, title: 'Menu' },
-  { id: 6, title: 'Recipes' },
-  { id: 7, title: 'Restaurant' },
-  { id: 8, title: 'Vegan menu' },
-];
+  {id: 1, title: 'Greek Salad', img: productImg01,  rate: 4.5, price: 50, category: 'salad' },
+  {id: 2, title: 'Buffalo Burger', img:productImg02,  rate: 4, price: 80, category: 'burger' },
+  {id: 3, title: 'Latte', img: productImg03,  rate: 3, price: 30, category: 'drink' },
+  {id: 4, title: 'Pizza Rossini', img: productImg01,  rate: 5, price: 90, category: 'pizza' },
+  {id: 5, title: 'Cheesecake', img: productImg02,  rate: 3.5, price: 20, category: 'cake' },
+  {id: 6, title: 'Bacon Burger', img: productImg03,  rate: 4, price: 35, category: 'burger' },
+  {id: 7, title: 'Chicken Salad', img: productImg01,  rate: 4.5, price: 18, category: 'salad' },
+  {id: 8, title: 'Coffee cake', img: productImg02,  rate: 4.7, price: 24, category: 'cake' },
+  {id: 9, title: 'Cheese Burger', img: productImg03,  rate: 3.7, price: 29, category: 'burger' },
+  {id: 10, title: 'Espresso', img: productImg01,  rate: 3.9, price: 36, category: 'drink' },
+  {id: 11, title: 'Carrot cake', img: productImg02,  rate: 4.3, price: 45, category: 'cake' },
+  {id: 12, title: 'Cappuccino', img: productImg03,  rate: 5, price: 9, category: 'drink' },
+  {id: 13, title: 'Pizza Margherita', img: productImg01,  rate: 4.6, price: 79, category: 'pizza' },
+  {id: 14, title: 'Greek Burger', img: productImg02,  rate: 4.9, price: 38, category: 'burger' },
+  {id: 15, title: 'Americano', img: productImg03,  rate: 3.3, price: 19, category: 'drink' },
+  {id: 16, title: 'Pizza Bianca', img: productImg01,  rate: 4.4, price: 99, category: 'pizza' },
+  {id: 17, title: 'Chef Salad', img: productImg02,  rate: 5, price: 10, category: 'salad' },
+  {id: 18, title: 'Caesar Salad', img: productImg03,  rate: 3, price: 87, category: 'salad' },
+  {id: 19, title: 'Red velvet cake', img: productImg01,  rate: 2.5, price: 65, category: 'cake' },
+  {id: 20, title: 'Chili Burger', img: productImg02,  rate: 4, price: 44, category: 'burger' },
+]
