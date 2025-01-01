@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { IoTrash } from 'react-icons/io5';
 import { FiPlus, FiMinus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-export default function ProductCard({ title, img, rate, price }) {
+function ProductCard({ title, img, rate, price }) {
   const [count, setCount] = useState(null);
   const increment = () => {
     setCount((prevCount) => (!prevCount ? 1 : prevCount + 1));
@@ -30,27 +30,15 @@ export default function ProductCard({ title, img, rate, price }) {
         <div className="flex items-center justify-between">
           <p>{price.toFixed(2)}$</p>
           {!count ? (
-            <button
-              onClick={increment}
-              className="flex size-8 items-center justify-center rounded-full border text-center"
-            >
-              <FiPlus />
-            </button>
+            <ProductCardButton icon={<FiPlus />} clickHandler={increment} />
           ) : (
             <div className="flex items-center justify-between gap-1">
-              <button
-                className="flex size-8 items-center justify-center rounded-full border text-white"
-                onClick={decrement}
-              >
-                {count > 1 ? <FiMinus /> : <IoTrash />}
-              </button>
+              <ProductCardButton
+                icon={count > 1 ? <FiMinus /> : <IoTrash />}
+                clickHandler={decrement}
+              />
               <span className="text-base">{count}</span>
-              <button
-                className="flex size-8 items-center justify-center rounded-full border text-white"
-                onClick={increment}
-              >
-                <FiPlus />
-              </button>
+              <ProductCardButton icon={<FiPlus />} clickHandler={increment} />
             </div>
           )}
         </div>
@@ -65,9 +53,27 @@ export default function ProductCard({ title, img, rate, price }) {
   );
 }
 
+function ProductCardButton({ icon, clickHandler }) {
+  return (
+    <button
+      className="flex size-8 items-center justify-center rounded-full border text-white"
+      onClick={clickHandler}
+    >
+      {icon}
+    </button>
+  );
+}
+
 ProductCard.propTypes = {
   title: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   rate: PropTypes.number.isRequired,
   price: PropTypes.number.isRequired,
 };
+
+ProductCardButton.propTypes = {
+  icon: PropTypes.element.isRequired,
+  clickHandler: PropTypes.func.isRequired,
+};
+
+export default memo(ProductCard);
