@@ -35,7 +35,7 @@ export default function Layout() {
       </main>
       <Footer />
       <button
-        className={`${showScrollTopBtn ? 'bottom-28 opacity-100 lg:bottom-16' : 'bottom-4 opacity-0 lg:bottom-4'} fixed bottom-28 right-8 flex size-9 items-center justify-center rounded-full border border-primary text-2xl text-primary transition-all duration-300 hover:border-quaternary hover:text-quaternary lg:bottom-16`}
+        className={`${showScrollTopBtn ? 'visible bottom-28 opacity-100 lg:bottom-16' : 'invisible bottom-4 opacity-0 lg:bottom-4'} fixed bottom-28 right-8 z-10 flex size-9 items-center justify-center rounded-full border border-primary text-2xl text-primary transition-all duration-300 hover:bg-primary hover:text-white lg:bottom-16`}
         onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       >
         <GoArrowUp />
