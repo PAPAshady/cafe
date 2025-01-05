@@ -1,4 +1,4 @@
-import { cloneElement } from 'react';
+import { cloneElement, useState } from 'react';
 import { IoSearchOutline } from 'react-icons/io5';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode } from 'swiper/modules';
@@ -7,6 +7,35 @@ import ProductCard from '../../Components/ProductCard';
 import 'swiper/css';
 
 export default function Products() {
+  const [userCart, setUserCart] = useState([]);
+
+  function addItem(item) {
+    setUserCart((prevItems) => [...prevItems, { ...item, quantity: 1 }]);
+  }
+
+  function incrementItem(item) {
+    setUserCart((prevItems) =>
+      prevItems.map((prevItem) =>
+        prevItem.id === item.id
+          ? { ...prevItem, quantity: prevItem.quantity + 1 }
+          : prevItem
+      )
+    );
+  }
+
+  function decrementItem(item) {
+    // console.log("item.quantity: ", item.quantity);
+    setUserCart((prevItems) =>
+      prevItems
+        .map((prevItem) =>
+          prevItem.id === item.id
+            ? { ...prevItem, quantity: prevItem.quantity - 1 }
+            : prevItem
+        )
+        .filter((prevItem) => prevItem.quantity > 0)
+    );
+  }
+
   return (
     <div className="container flex flex-col gap-8">
       <div className="flex items-center overflow-hidden rounded-full bg-white">
@@ -48,7 +77,14 @@ export default function Products() {
       {/* PRODUCT CARDS */}
       <div className="grid w-full grid-cols-2 items-center justify-center gap-3 px-2">
         {products.map((product) => (
-          <ProductCard {...product} key={product.id} />
+          <ProductCard
+            product={product}
+            userCart={userCart}
+            onAddToCart={addItem}
+            onIncrement={incrementItem}
+            onDecrement={decrementItem}
+            key={product.id}
+          />
         ))}
       </div>
     </div>
